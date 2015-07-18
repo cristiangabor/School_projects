@@ -1,0 +1,29 @@
+import string
+from b import applyShift
+
+def decode():
+	# N fr ymj gjxy rfs, 5
+
+	TEXT='N fr ymj gjxy rfs'
+	fisier=open('words.txt','r')
+	words=fisier.read().split()
+
+	# Variabilele necesare
+
+	cuvinte_gasite=0
+	cheie=0
+	counter=0
+
+	for i in range(0,26):
+		mesaj=applyShift(TEXT,i)
+		mesaj_split=mesaj.split(' ')
+		for j in mesaj_split:
+			if j in words:
+				counter +=1
+		if counter > cuvinte_gasite:
+			cuvinte_gasite=counter
+			cheie=i
+
+	print cheie
+
+decode()
